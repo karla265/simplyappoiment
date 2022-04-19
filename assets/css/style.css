@@ -34,6 +34,10 @@ h6 {
     font-family: "Raleway", sans-serif;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -625,7 +629,7 @@ section {
 .about .image {
     background: url("../img/logo.png") center center no-repeat;
     background-size: 100%;
-    min-height: 500px;
+    min-height: 300px;
 }
 
 .about .skills-content {
