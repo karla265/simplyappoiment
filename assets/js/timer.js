@@ -1,24 +1,20 @@
 let timer;
-let viewTimer = '10:00';
+let viewTimer = '05:00';
 let duration = moment.duration({
-    'minutes': 10,
+    'minutes': 5,
     'seconds': 00
 });
 let temporizadorActivo = false;
 let temporizadorPause = false;
 
 document.getElementById('bntPlay').addEventListener('click', function() {
-    console.log('Has pulsado Play');
     let prueba = moment(300).millisecond();
-    console.log(prueba);
     temporizador('play');
 });
 document.getElementById('btnPause').addEventListener('click', function() {
-    console.log('Has pulsado Pause');
     temporizador('pause');
 });
 document.getElementById('btnStop').addEventListener('click', function() {
-    console.log('Has pulsado Stop');
     temporizador('stop');
 });
 
@@ -32,7 +28,6 @@ function temporizador(evento) {
         temporizadorActivo = false;
         temporizadorPause = true;
         timerTitle.innerHTML = viewTimer;
-        console.log('vamos a borrar el id del timer -> ' + timer);
         clearInterval(timer);
         duration = moment.duration({
             'minutes': 5,
@@ -43,12 +38,8 @@ function temporizador(evento) {
     var timestamp = new Date(0, 0, 0, 2, 10, 30);
     var interval = 1;
     if (!temporizadorActivo && evento !== 'stop') {
-        console.log('empiza temporizador');
         timer = setInterval(function() {
-            console.log('llega aunque le demos a stop');
-            console.log('por ver cual es timer -> ' + timer);
             if (!temporizadorPause) {
-                console.log('id del timer -> ' + timer);
                 timestamp = new Date(timestamp.getTime() + interval * 1000);
 
                 duration = moment.duration(duration.asSeconds() - interval, 'seconds');
@@ -62,9 +53,6 @@ function temporizador(evento) {
                     min -= 1;
                     sec = 59;
                 } else if (sec < 10 && sec.length != 2) sec = '0' + sec;
-
-                console.log('llega aunque le demos a stop2');
-                console.log(sec);
 
                 timerTitle.innerHTML = min + ':' + sec;
                 if (min == 0 && sec == 0)
