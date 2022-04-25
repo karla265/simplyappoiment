@@ -770,7 +770,7 @@ section {
     font-size: 18px;
 }
 
-.services .title a {
+.services .title a, .services .title span {
     color: #111;
     transition: 0.3s;
 }
